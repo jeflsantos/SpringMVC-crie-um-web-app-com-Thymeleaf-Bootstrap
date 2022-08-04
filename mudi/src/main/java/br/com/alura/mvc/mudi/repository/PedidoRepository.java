@@ -10,5 +10,6 @@ import br.com.alura.mvc.mudi.model.Pedido;
 @Repository
 public interface PedidoRepository extends JpaRepository<Pedido, Long>{
 	
-	public List<Pedido> findAll();
+	
+
 }
