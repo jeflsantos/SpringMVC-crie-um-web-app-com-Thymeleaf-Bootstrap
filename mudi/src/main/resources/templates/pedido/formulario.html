@@ -13,29 +13,39 @@
 			<h1 class="display-4">Novo Pedido</h1>
 		</div>
 
-		<div class="card mt-3" >
-			<form th:object="${requisicaoNovoPedido}" class="card-body" action="/pedido/novo" method="POST">
+		<div class="card mt-3">
+			<form th:object="${requisicaoNovoPedido}" class="card-body"
+				action="/pedido/novo" method="POST">
 				<div class="form-group">
-					<label for="nomeProduto">Produto</label> <input th:field="*{nomeProduto}"
-						class="form-control" placeholder="Digite o nome do produto" /> <small>Informe o
-						nome do produto</small>
+					<label for="nomeProduto">Produto</label> <input
+						th:field="*{nomeProduto}" th:errorclass="is-invalid"
+						class="form-control" placeholder="Digite o nome do produto" /> <small>Informe
+						o nome do produto</small>
 				</div>
+				<div class="invalid-feedback" th:errors="*{nomeProduto}">
+					Erros do nome do produto</div>
 
 				<div class="form-group">
-					<label for="urlProduto">Url</label> <input th:field="*{urlProduto}" class="form-control"
-						 placeholder="Digite o link do produto" /> <small>Informe
+					<label for="urlProduto">Url</label> <input th:field="*{urlProduto}"
+						th:errorclass="is-invalid" class="form-control"
+						placeholder="Digite o link do produto" /> <small>Informe
 						o link produto</small>
 				</div>
+				<div class="invalid-feedback" th:errors="*{urlProduto}">Erros
+					da url do produto</div>
 
 				<div class="form-group">
-					<label for="urlImagem">Imagem</label> <input th:field="*{urlImagem}" class="form-control"
-						 placeholder="Digite o link da imagem" /> <small>Informe
+					<label for="urlImagem">Imagem</label> <input
+						th:field="*{urlImagem}" th:errorclass="is-invalid"
+						class="form-control" placeholder="Digite o link da imagem" /> <small>Informe
 						o link da imagem</small>
 				</div>
+				<div class="invalid-feedback" th:errors="*{urlImagem}">Erros
+					da url da imagem</div>
 
 				<div class="form-group">
 					<label for="descricao">Descricao</label>
-					<textarea class="form-control" name="descricao"
+					<textarea th:field="*{descricao}" class="form-control"
 						placeholder="Digite uma descrição para o produto"></textarea>
 				</div>
 
